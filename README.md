@@ -22,7 +22,6 @@ A starter template for building fully documented type-safe JSON APIs with Hono a
 - Interactive API documentation with [scalar](https://scalar.com/#api-docs) / [@scalar/hono-api-reference](https://github.com/scalar/scalar/tree/main/packages/hono-api-reference)
 - Convenience methods / helpers to reduce boilerplate with [stoker](https://www.npmjs.com/package/stoker)
 - Type-safe schemas and environment variables with [zod](https://zod.dev/)
-- Single source of truth database schemas with [drizzle](https://orm.drizzle.team/docs/overview) and [drizzle-zod](https://orm.drizzle.team/docs/zod)
 - Testing with [vitest](https://vitest.dev/)
 - Sensible editor, formatting and linting settings with [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 

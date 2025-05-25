@@ -13,8 +13,8 @@ const router = createRouter()
 			path: '/',
 			responses: {
 				[HttpStatusCodes.OK]: jsonContent(
-					createMessageObjectSchema('Tasks API'),
-					'Tasks API Index',
+					createMessageObjectSchema('Hello world'),
+					'Test API',
 				),
 			},
 		}),

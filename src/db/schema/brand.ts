@@ -1,5 +1,5 @@
 import { pgTable, text } from 'drizzle-orm/pg-core'
-import { createSchemaFactory } from 'drizzle-zod'
+import { z } from 'zod'
 
 import { createdAt, description, id, name, updatedAt } from '../helpers'
 
@@ -13,26 +13,25 @@ export const brandTable = pgTable('brand', {
 	updatedAt,
 })
 
-const { createInsertSchema, createSelectSchema } = createSchemaFactory({
-	coerce: {
-		date: true,
-	},
+export const selectBrandSchema = z.object({
+	id: z.string().uuid(),
+	name: z.string().min(1).max(255),
+	description: z.string().nullable(),
+	country: z.string().nullable(),
+	website: z.string().nullable(),
+	createdAt: z.coerce.date(),
+	updatedAt: z.coerce.date(),
 })
+	.openapi('Brand')
 
-export const selectBrandSchema = createSelectSchema(brandTable)
-
-export const insertBrandSchema = createInsertSchema(
-	brandTable,
-	{
-		name: schema => schema.min(1).max(255),
-		website: schema => schema.url().nullable().optional(),
-	},
-).required({
-	id: true,
-}).omit({
-	id: true,
-	createdAt: true,
-	updatedAt: true,
+export const insertBrandSchema = z.object({
+	name: z.string().min(1).max(255),
+	description: z.string().optional().nullable(),
+	country: z.string().optional().nullable(),
+	website: z.string().url().optional().nullable(),
 })
+	.openapi('CreateBrand')
 
-export const patchBrandSchema = insertBrandSchema.partial()
+export const patchBrandSchema = insertBrandSchema
+	.partial()
+	.openapi('UpdateBrand')

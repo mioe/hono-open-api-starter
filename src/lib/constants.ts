@@ -1,5 +1,6 @@
 import * as HttpStatusPhrases from 'stoker/http-status-phrases'
 import { createMessageObjectSchema } from 'stoker/openapi/schemas'
+import { z } from 'zod'
 
 export const ZOD_ERROR_MESSAGES = {
 	REQUIRED: 'Required',
@@ -12,3 +13,15 @@ export const ZOD_ERROR_CODES = {
 }
 
 export const notFoundSchema = createMessageObjectSchema(HttpStatusPhrases.NOT_FOUND)
+
+export const IdParamsSchema = z.object({
+	id: z.string().uuid().openapi({
+		param: {
+			name: 'id',
+			in: 'path',
+			description: 'The unique identifier',
+			required: true,
+		},
+		example: '123e4567-e89b-12d3-a456-426614174000',
+	}),
+})

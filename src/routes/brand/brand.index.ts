@@ -1,9 +1,13 @@
 import { createRouter } from '~/lib/create-app'
 
-import * as handler from './brand.handler'
-import * as route from './brand.route'
+import * as handlers from './brand.handler'
+import * as routes from './brand.route'
 
 const router = createRouter()
-	.openapi(route.list, handler.list)
+	.openapi(routes.list, handlers.list)
+	.openapi(routes.create, handlers.create)
+	.openapi(routes.getOne, handlers.getOne)
+	.openapi(routes.patch, handlers.patch)
+	.openapi(routes.remove, handlers.remove)
 
 export default router
