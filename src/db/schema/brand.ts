@@ -1,5 +1,5 @@
+import { z } from '@hono/zod-openapi'
 import { pgTable, text } from 'drizzle-orm/pg-core'
-import { z } from 'zod'
 
 import { createdAt, description, id, name, updatedAt } from '../helpers'
 
