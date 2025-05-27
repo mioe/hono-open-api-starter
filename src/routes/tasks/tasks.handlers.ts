@@ -86,7 +86,7 @@ export const remove: AppRouteHandler<RemoveRoute> = async (c) => {
 	const result = await db.delete(taskTable)
 		.where(eq(taskTable.id, id))
 
-	if (result.rowsAffected === 0) {
+	if (result.count === 0) {
 		return c.json(
 			{
 				message: HttpStatusPhrases.NOT_FOUND,

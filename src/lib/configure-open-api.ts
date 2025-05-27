@@ -17,8 +17,8 @@ export default function configureOpenAPI(app: AppOpenAPI) {
 		'/ref',
 		Scalar({
 			defaultHttpClient: {
-				targetKey: 'js',
-				clientKey: 'fetch',
+				targetKey: 'shell',
+				clientKey: 'curl',
 			},
 			url: '/doc',
 		}),
