@@ -5,6 +5,7 @@ import { requestId } from 'hono/request-id'
 import { notFound, onError } from 'stoker/middlewares'
 import { defaultHook } from 'stoker/openapi'
 
+import { csrfGuard } from '~/middlewares/csrf-guard'
 import { pinoLogger } from '~/middlewares/pino-logger'
 
 import type { AppBindings, AppOpenAPI } from './types'
@@ -20,6 +21,7 @@ export default function createApp() {
 	const app = createRouter()
 	app.use(requestId())
 		.use(pinoLogger())
+		.use(csrfGuard())
 
 	app.notFound(notFound)
 	app.onError(onError)
