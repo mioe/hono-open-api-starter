@@ -21,7 +21,7 @@ const EnvSchema = z.object({
 	PG_USER: z.string().default('pg-user'),
 	PG_PASSWORD: z.string().default('pg-pass'),
 	DATABASE_URL: z.string().url(),
-	BEARER_TOKEN: z.string().min(10, 'Bearer token must be at least 10 characters long'),
+	X_SIGNATURE: z.string().min(32, 'X-Signature must be at least 32 characters long'),
 }).superRefine((input, ctx) => {
 	if (input.NODE_ENV === 'production') {
 		ctx.addIssue({
