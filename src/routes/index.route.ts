@@ -20,7 +20,7 @@ const router = createRouter()
 		}),
 		(c) => {
 			return c.json({
-				message: 'Tasks API',
+				message: 'Test API',
 			}, HttpStatusCodes.OK)
 		},
 	)

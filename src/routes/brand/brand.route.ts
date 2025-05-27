@@ -9,7 +9,7 @@ import { IdParamsSchema, notFoundSchema } from '~/lib/constants'
 const tags = ['Brand']
 
 export const list = createRoute({
-	path: '/brands',
+	path: '/brand',
 	method: 'get',
 	tags,
 	summary: 'Get all brands',
@@ -23,7 +23,7 @@ export const list = createRoute({
 })
 
 export const create = createRoute({
-	path: '/brands',
+	path: '/brand',
 	method: 'post',
 	tags,
 	summary: 'Create a brand',
@@ -47,7 +47,7 @@ export const create = createRoute({
 })
 
 export const getOne = createRoute({
-	path: '/brands/{id}',
+	path: '/brand/{id}',
 	method: 'get',
 	tags,
 	summary: 'Get a brand by ID',
@@ -72,7 +72,7 @@ export const getOne = createRoute({
 })
 
 export const patch = createRoute({
-	path: '/brands/{id}',
+	path: '/brand/{id}',
 	method: 'patch',
 	tags,
 	summary: 'Update a brand',
@@ -102,7 +102,7 @@ export const patch = createRoute({
 })
 
 export const remove = createRoute({
-	path: '/brands/{id}',
+	path: '/brand/{id}',
 	method: 'delete',
 	tags,
 	summary: 'Delete a brand',
